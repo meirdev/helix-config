@@ -17,7 +17,11 @@ args = ["pyrefly", "lsp"]
 [[language]]
 name = "yaml"
 file-types = ["yaml", "yml"]
-language-servers = ["yaml-language-server"]
+language-servers = ["yaml-language-server", "ansible-language-server"]
+
+[language-server.ansible-language-server]
+command = "ansible-language-server"
+args = ["--stdio"]
 
 [[language]]
 name = "rust"
