@@ -1,6 +1,8 @@
 [[language]]
 name = "python"
+auto-format = true
 language-servers = ["pylsp", "ruff", "pyrefly"]
+formatter = { command = "bash", args = ["-c", "uvx ruff check --select I --fix - | uvx ruff format -"] }
 
 [language-server.ruff]
 command = "uvx"
@@ -29,3 +31,28 @@ language-servers = ["rust-analyzer"]
 
 [language-server.rust-analyzer.config.check]
 command = "clippy"
+
+[[language]]
+name = "javascript"
+auto-format = true
+formatter = { command = "npx", args = ["prettier", "--parser", "typescript", "--stdin-filename", "%f"] }
+
+[[language]]
+name = "typescript"
+auto-format = true
+formatter = { command = "npx", args = ["prettier", "--parser", "typescript", "--stdin-filename", "%f"] }
+
+[[language]]
+name = "css"
+auto-format = true
+formatter = { command = "npx", args = ["prettier", "--parser", "css", "--stdin-filename", "%f"] }
+
+[[language]]
+name = "json"
+auto-format = true
+formatter = { command = "npx", args = ["prettier", "--parser", "json", "--stdin-filename", "%f"] }
+
+[[language]]
+name = "markdown"
+auto-format = true
+formatter = { command = "npx", args = ["prettier", "--parser", "markdown", "--stdin-filename", "%f"] }
